@@ -1,0 +1,69 @@
+import nltk.classify.util
+from nltk.classify import NaiveBayesClassifier
+from nltk.corpus import movie_reviews
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.corpus import wordnet
+
+def create_word_features(words)
+    useful_words = word for word in words if word not in stopwords.words('english')
+    my_dict = dict([(word, True) if word in useful_words])
+    return my_dict
+
+def create_word_features(words):
+    useful_words = [word for word in words if word not in stopwords.words("english")]
+    
+stopwords.words('english')[:16]
+
+sentence = "I gave my dad a beatiful car and afterwards I handed him a pretty vehicle "
+sentence.split(" ")
+word_tokenize(sentence)
+w = word_tokenize(sentence)
+nltk.pos_tag(w)
+
+#dit was niet heel boeiend maar het stond er als een soort opdracht
+syn = wordnet.synsets("book")
+for s in syn:
+    print(s.lemmas())
+
+
+para = "The program was open to all women between the ages 17 and 35, in good health, who had graduated from an accredited high school"
+words = word_tokenize(para)
+print(words)
+useful_words = [word for word in words if word not in stopwords.words('english')]
+print(useful_words)
+
+from nltk.corpus import movie_reviews
+all_words = movie_reviews.words()
+freq_dist = nltk.FreqDist(all_words)
+freq_dist.most_common(20)
+
+#dit is het eerste deel van hoe je een woordenboek (dict in deze ) maakt van losse woorden, je moet er voor zorgen dat er true achter de woorden staat want anders werkt de Naive Bayes classifier niet.
+def create_word_features(words):
+    useful_words = [word for word in words if word not in stopwords.words("english")]
+    my_dict = dict([(word, True) for word in useful_words])
+    return my_dict
+create_word_features(["the","a","quick","fox","quick","brown"])
+
+#hier zorgen we ervoor dat we de negatieve reviews splitsen in woorden i.p.v. documenten, het enige nadeel is dat het exreem veel reviews zijn en daardoor het lang duurt voordat er een output is.
+#vandaar dat print(neg_reviews) tussen een # staat en de computer dat dus niet doet.
+neg_reviews =[]
+for fileid in movie_reviews.fileids('neg'):
+    words = movie_reviews.words(fileid)
+    neg_reviews.append((create_word_features(words), "negative"))
+    
+#print(neg_reviews)
+print(len(neg_reviews))
+#hier gebeurt hetzelfde als hierboven met de negatieve reviews maar dan met de positieve reviews
+pos_reviews =[]
+for fileid in movie_reviews.fileids('pos'):
+    words = movie_reviews.words(fileid)
+    pos_reviews.append((create_word_features(words), "positive"))
+
+#print(pos_reviews[0])
+print(len(pos_reviews))
+
+#hier kijken we hoeveel reviews we willen als training voor machine learning en hoeveel als echt proefje om te kijken of machine learning werkt
+train_set = neg_reviews[:750] + pos_reviews[:750]
+test_set = neg_reviews[750:] + pos_reviews[750:]
+print(len(train_set), len (test_set))
