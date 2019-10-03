@@ -6,7 +6,8 @@ Profielwerkstuk: Spamfilter maken in Python
 - Het bestand textfiltering_functies.py is het nieuwste bestand met de code voor het filteren van de tekst/data en het 
   klaarmaken van de data voor het algoritme van het spamfilter, hierin is het laatst ge-uploade bestand het laatste 
   bestand en dus de juiste op dat moment, bij elke functie staat een uitleg wat er gebeurt.
-
+- Overige bestanden zijn onderdelen van grotere bestanden en zijn dus door ons geplaatst om iets aan te passen in een groter 
+  bestand
 We laten nu alle geüploade bestanden staan, ook als deze niet meer de huidige bestanden zijn, dit zodat u de vooruitgang kunt 
 zien. 
 We hopen dat het zo duidelijk is. 
