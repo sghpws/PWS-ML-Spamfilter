@@ -1,4 +1,4 @@
-# TEST ANALYSING KEN LAY DATA
+# TEST ANALYSING GIRON-D DATA
 
 import nltk
 from nltk.tokenize import word_tokenize
@@ -8,7 +8,7 @@ import time
 
 start_time = time.time()
 
-with open("ken_lay_emails.txt", "r") as f:
+with open("giron_d.txt", "r") as f:
     data = f.read()
 
 
